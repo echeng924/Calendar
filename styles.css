@@ -1,3 +1,47 @@
 body {
   background-color: cornflowerblue;
+
+}
+
+table {
+  border: 1px solid black;
+  /*width: 100px;
+  height: 100px;*/
+  display: inline-block;
+}
+
+.monthDisplay {
+  /*display: inline-block;*/
+}
+
+#currentMonthDisplay {
+  display: inline-block;
+}
+
+#rightSideContainder {
+  display: inline-block;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+th {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}
+
+button {
+  display: inline-block;
+}
+
+#currentDateDisplay{
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  vertical-align: top;
 }
