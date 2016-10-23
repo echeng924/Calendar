@@ -8,7 +8,7 @@ class Calendar {
     this.previousMonth();
     this.nextMonth();
     this.calendarTable = document.querySelector('#calendar');
-
+    this.dateContainer = document.querySelector('#currentDateDisplay');
   }
   changeMonth(change) {
     this.monthCounter = this.monthCounter + change;
@@ -33,8 +33,8 @@ class Calendar {
         subtractMonth();
       }
     };
-    previousMonthBtn.addEventListener("click", subtractMonth.bind(this));
-    document.body.addEventListener("keydown", subtractMonthKeys.bind(this));
+    previousMonthBtn.addEventListener('click', subtractMonth.bind(this));
+    document.body.addEventListener('keydown', subtractMonthKeys.bind(this));
   }
   nextMonth() {
     let nextMonthBtn = document.querySelector('#nextMonth');
@@ -49,28 +49,41 @@ class Calendar {
         addMonth();
       }
     };
-    nextMonthBtn.addEventListener("click", addMonth.bind(this));
-    document.body.addEventListener("keydown", addMonthKeys.bind(this));
+    nextMonthBtn.addEventListener('click', addMonth.bind(this));
+    document.body.addEventListener('keydown', addMonthKeys.bind(this));
   }
+
   createTable() {
     let tableRow;
     let tableDataItem;
     let firstDayOfMonth = this.calendarDate.getDay();
-    let numberOfDaysInMonth = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth()+1, 0).getDate();
+    let numberOfDaysInMonth = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth() + 1, 0).getDate();
     let counter = 1;
     let monthDisplayDiv = document.querySelector('#currentMonthDisplay');
-    let monthArray = ["January", "February", "March", "April", "May", "June",
-     "July", "August", "September", "October", "November", "December"];
+    let monthArray = ['January', 'February', 'March', 'April', 'May', 'June',
+     'July', 'August', 'September', 'October', 'November', 'December'];
+     let weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     for(let i = 0; i < 6; i++) {
-      tableRow = document.createElement("tr");
-      tableRow.className = "calendarRows";
-      for(let j=0; j < 7; j++) {
-        tableDataItem = document.createElement("td");
+      tableRow = document.createElement('tr');
+      tableRow.className = 'calendarRows';
+      for(let j = 0; j < 7; j++) {
+        tableDataItem = document.createElement('td');
+
         if (j < firstDayOfMonth && i === 0) {
           tableDataItem.innerHTML = '';
         } else if (counter <= numberOfDaysInMonth) {
           tableDataItem.innerHTML = counter;
+          let localCounter = counter;
+          tableDataItem.addEventListener('click', () => {
+            this.dateContainer.innerHTML =
+            `<div id="week">
+                ${weekArray[j]}
+              </div>
+              <div id="day">
+                ${localCounter}
+              </div>`;
+          })
           counter++
         }
         tableRow.appendChild(tableDataItem);
