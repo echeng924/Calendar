@@ -66,7 +66,8 @@ button {
 }
 
 #week {
-  background-color: red;
+  background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
+  /*background-color: red;*/
   color: white;
   font-size: 0.7rem;
   padding: 0.5rem;
@@ -79,7 +80,8 @@ button {
 }
 
 .selectedDate {
-  background-color: red;
+/*  background-color: red;*/
+  background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
   color: white;
   /*border-radius: 20%*/
 }
