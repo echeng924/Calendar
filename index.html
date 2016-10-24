@@ -3,18 +3,19 @@
 <head>
   <title>Annual Calendar</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
 <body>
-  <div id="container">
-    <div id="currentDateDisplay"></div>
-    <div id="rightSideContainder">
+  <table id="container"><tr>
+    <td id="currentDateDisplay"></td>
+    <td id="rightSideContainder">
       <div class="monthDisplay">
         <button type="button" id="previousMonth"><</button>
         <div id="currentMonthDisplay"></div>
         <button type="button" id="nextMonth">></button>
       </div>
       <table id="calendar">
-        <tr>
+        <tr class ="daysOfWeek">
           <th>S</th>
           <th>M</th>
           <th>T</th>
@@ -24,8 +25,8 @@
           <th>S</th>
         </tr>
       </table>
-    </div>
-  </div>
+    </td>
+  </tr></table>
   <script src="app.js" type="text/javascript"></script>
 </body>
 </html>

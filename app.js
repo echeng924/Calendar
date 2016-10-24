@@ -5,10 +5,13 @@ class Calendar {
     this.dateToday = new Date();
     this.monthCounter = this.dateToday.getMonth();
     this.calendarDate = new Date(this.dateToday.getFullYear(), this.monthCounter, 1);
+    this.selectedDate = this.dateToday.getDate();
     this.previousMonth();
     this.nextMonth();
     this.calendarTable = document.querySelector('#calendar');
     this.dateContainer = document.querySelector('#currentDateDisplay');
+    this.monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    this.weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   }
   changeMonth(change) {
     this.monthCounter = this.monthCounter + change;
@@ -60,9 +63,6 @@ class Calendar {
     let numberOfDaysInMonth = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth() + 1, 0).getDate();
     let counter = 1;
     let monthDisplayDiv = document.querySelector('#currentMonthDisplay');
-    let monthArray = ['January', 'February', 'March', 'April', 'May', 'June',
-     'July', 'August', 'September', 'October', 'November', 'December'];
-     let weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     for(let i = 0; i < 6; i++) {
       tableRow = document.createElement('tr');
@@ -75,22 +75,35 @@ class Calendar {
         } else if (counter <= numberOfDaysInMonth) {
           tableDataItem.innerHTML = counter;
           let localCounter = counter;
-          tableDataItem.addEventListener('click', () => {
+          let localTableDataItem = tableDataItem;
+          if(localCounter === this.selectedDate) {
+            localTableDataItem.className = 'selectedDate';
             this.dateContainer.innerHTML =
             `<div id="week">
-                ${weekArray[j]}
+                ${this.weekArray[j]}
               </div>
               <div id="day">
                 ${localCounter}
               </div>`;
-          })
+          }
+          tableDataItem.addEventListener('click', () => {
+            this.dateContainer.innerHTML =
+            `<div id="week">
+                ${this.weekArray[j]}
+              </div>
+              <div id="day">
+                ${localCounter}
+              </div>`;
+            // this.selectedDate = localCounter;
+
+          });
           counter++
         }
         tableRow.appendChild(tableDataItem);
       }
       this.calendarTable.appendChild(tableRow);
     }
-      monthDisplayDiv.innerHTML = `${monthArray[this.calendarDate.getMonth()]} ${this.calendarDate.getFullYear()}`;
+      monthDisplayDiv.innerHTML = `${this.monthArray[this.calendarDate.getMonth()]} ${this.calendarDate.getFullYear()}`;
   }
 
 }
