@@ -24,9 +24,9 @@ body {
 #rightSideContainder {
   display: inline-block;
   border: 1px solid black;
-  font-size:8px;
+  font-size:1.3rem;
   vertical-align: top;
-  padding: 8px 0;
+  padding: 10px 4px;
   height: 100%;
 }
 
@@ -42,7 +42,7 @@ table {
 }
 #calendar td {
   /*border: 1px solid black;*/
-  padding: 0.1rem 0.45rem;
+  padding: 0.1rem 0.8rem;
   text-align: center;
   border-right: .5px solid #ccc;
 }
@@ -53,12 +53,12 @@ table {
 button {
   border: 0;
   background: transparent;
-  font-size:8px;
+  font-size:12px;
 }
 
 #currentDateDisplay{
   border: 1px solid black;
-  width: 120px;
+  width: 14.5rem;
   vertical-align: top;
   margin: 0;
   padding: 0;
@@ -67,21 +67,18 @@ button {
 
 #week {
   background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
-  /*background-color: red;*/
   color: white;
-  font-size: 0.7rem;
-  padding: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.8rem;
 }
 
 #day {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
-  padding: 1rem;
+  padding: 2.5rem;
 }
 
 .selectedDate {
-/*  background-color: red;*/
   background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
   color: white;
-  /*border-radius: 20%*/
 }
