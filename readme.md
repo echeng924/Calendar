@@ -6,4 +6,4 @@ User can change months with arrow icons and keyboard keys. On load the current d
 
 Technologies: JavaScript, HTML, CSS
 
-
+Deployed Link: http://lizcheng.com/Calendar/
